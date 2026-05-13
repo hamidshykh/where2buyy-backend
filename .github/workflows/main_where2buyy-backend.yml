@@ -67,6 +67,13 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_771F125E94C34402AE3463D3037E480D }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_D2832481D6484430906EE0FAF244AE5A }}
 
+      # ✅ Oryx disable - deploy se PEHLE
+      - name: Disable Oryx build
+        uses: azure/appservice-settings@v1
+        with:
+          app-name: 'where2buyy-backend'
+          app-settings-json: '[{"name": "SCM_DO_BUILD_DURING_DEPLOYMENT","value": "false","slotSetting": false}]'
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
