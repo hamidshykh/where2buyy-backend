@@ -66,8 +66,8 @@ class Product(Base):
     category = Column(Integer, ForeignKey("categories.id"))
     image = Column(String(1024))
     price = Column(Float)
-    brand_name = Column(Integer, ForeignKey("brand_name.id"))   # ✅ FIXED
-    store_name = Column(Integer, ForeignKey("store_name.id"))   # ✅ FIXED
+    brand_name = Column(BigInteger, ForeignKey("brand_name.id"))   # ✅ FIXED
+    store_name = Column(BigInteger, ForeignKey("store_name.id"))   # ✅ FIXED
     product_attribute = Column(String(128))
     product_description = Column(Text)
     product_specification = Column(Text)
